@@ -1,12 +1,17 @@
 import * as cdk from "@aws-cdk/core";
 import dynamodb = require("@aws-cdk/aws-dynamodb");
 
+interface AdDynamoCdkStackProps extends cdk.StackProps {
+  buildTimestamp: string;
+  stackName: string;
+}
+
 export class AdDynamoCdkStack extends cdk.Stack {
-  constructor(scope: cdk.Construct, id: string, props?: cdk.StackProps) {
+  constructor(scope: cdk.Construct, id: string, props: AdDynamoCdkStackProps) {
     super(scope, id, props);
 
-    new dynamodb.Table(this, "ad_levers_cdk", {
-      tableName: "ad_levers",
+    const dynamodbTable = new dynamodb.Table(this, props.stackName, {
+      tableName: `ad_levers_${props.stackName}`,
       partitionKey: {
         name: "lever",
         type: dynamodb.AttributeType.STRING
