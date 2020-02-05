@@ -8,7 +8,7 @@ export class AdDynamoCdkStack extends cdk.Stack {
     new dynamodb.Table(this, "ad_levers_cdk", {
       tableName: "ad_levers",
       partitionKey: {
-        name: "levers",
+        name: "lever",
         type: dynamodb.AttributeType.STRING
       }
     });
