@@ -2,9 +2,11 @@
 Make sure you have Node.js >= 10.3.0
 
 1. install Typescript >= 2.7
-2. npm install aws-cdk
-3. npm run build
-4. cdk deploy 
+2. pull master
+3. npm install aws-cdk
+4. npm install
+5. npm run build
+6. cdk deploy 
 
 # Welcome to your CDK TypeScript project!
 
